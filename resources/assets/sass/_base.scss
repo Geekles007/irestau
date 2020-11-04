@@ -1,0 +1,22 @@
+input,
+select,
+textarea,
+button,
+div,
+a {
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+input {
+  width: 100%;
+}
+
+code, pre {
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: auto;
+  font-family: "Source Code Pro", Monaco, Inconsolata, monospace;
+  line-height: 1.25;
+}
