@@ -29,23 +29,24 @@ html, body{
 body {
     background: url("./../images/bg.png") no-repeat;
     background-position: top center;
+    background-attachment: fixed;
 }
 
 ::-webkit-scrollbar-track
 {
     border: 2px solid white;
-    background-color: #aaa;
+    background-color: $primary;
 }
 
 ::-webkit-scrollbar
 {
     width: 5px;
-    background-color: #aaa;
+    background-color: $primary;
 }
 
 ::-webkit-scrollbar-thumb
 {
-    background-color: #aaa;
+    background-color: $primary;
     border-radius: 10px;
 }
 
@@ -74,5 +75,226 @@ a{
 .see_menu{
     img{
         animation: arrow_infinite .5s infinite;
+    }
+}
+
+.closed{
+    filter: grayscale(100);
+}
+
+.h-full-90{
+    height: 90%;
+}
+
+.h-full-80{
+    height: 80%;
+}
+
+.w-400{
+    width: 400px;
+}
+
+.vertical-center{
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.max-h-200{
+    max-height: 200px;
+}
+
+.max-h-250{
+    max-height: 250px;
+}
+
+.max-h-200:hover{
+    overflow-y: scroll;
+}
+
+.cart_number{
+    animation: cart_number_bounce .5s infinite;
+}
+
+.dropdown_button.button_activated{
+    background-color: #f6ad55;
+}
+
+.dropdown{
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-50px);
+
+    transition: opacity .5s ease-in-out, transform .5s ease-in-out;
+
+    &.shown{
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    &.hidden-it{
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+}
+
+/* Product item */
+
+.product__item{
+    transform: scale(1);
+
+    .product__item-details{
+        transition: all .5s 0s ease-in-out;
+        opacity: 0;
+        transform: translateY(100%);
+
+        p{
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all .5s .3s ease-in-out;
+        }
+    }
+}
+
+.product__item:hover{
+    transform: scale(1.01);
+
+    .product__item-details{
+        opacity: 1;
+        transform: translateY(0%);
+
+        p{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+}
+
+/* Contact modal */
+
+.__visible{
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .5s .3s ease-in-out;
+}
+
+#dropdown-list{
+    /* Custom checkbox */
+    .main_checkboxes {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    /* Create a custom checkbox */
+    .checkmark {
+        background-color: transparent;
+        transition: all .5s 0s ease-in-out;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .main_checkboxes:hover input ~ .checkmark {
+        background-color: #eee;
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    .main_checkboxes input:checked ~ .checkmark {
+        background-color: #f6ad55;
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    /* Show the checkmark when checked */
+    .main_checkboxes input:checked ~ .checkmark:after {
+        display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    .main_checkboxes .checkmark:after {
+        right: 12px;
+        top: 15px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+}
+
+.newsletter{
+    .container {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    /* Hide the browser's default checkbox */
+    .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    /* Create a custom checkbox */
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+        border-radius: 5px;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .container:hover input ~ .checkmark {
+        background-color: #ccc;
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    .container input:checked ~ .checkmark {
+        background-color: #f6ad55;
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    /* Show the checkmark when checked */
+    .container input:checked ~ .checkmark:after {
+        display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    .container .checkmark:after {
+        left: 9px;
+        top: 7px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
     }
 }

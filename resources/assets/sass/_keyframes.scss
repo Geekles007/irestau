@@ -9,3 +9,15 @@
         margin-left: 0.5em;
     }
 }
+
+@keyframes cart_number_bounce{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-8px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}

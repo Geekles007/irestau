@@ -24020,6 +24020,34 @@ code, pre {
   }
 }
 
+@-webkit-keyframes cart_number_bounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes cart_number_bounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
 html, body {
   scroll-behavior: smooth;
   margin: 0;
@@ -24034,20 +24062,21 @@ html, body {
 body {
   background: url("./../images/bg.png") no-repeat;
   background-position: top center;
+  background-attachment: fixed;
 }
 
 ::-webkit-scrollbar-track {
   border: 2px solid white;
-  background-color: #aaa;
+  background-color: #FFDA80;
 }
 
 ::-webkit-scrollbar {
   width: 5px;
-  background-color: #aaa;
+  background-color: #FFDA80;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #aaa;
+  background-color: #FFDA80;
   border-radius: 10px;
 }
 
@@ -24073,6 +24102,225 @@ a {
 .see_menu img {
   -webkit-animation: arrow_infinite 0.5s infinite;
           animation: arrow_infinite 0.5s infinite;
+}
+
+.closed {
+  filter: grayscale(100);
+}
+
+.h-full-90 {
+  height: 90%;
+}
+
+.h-full-80 {
+  height: 80%;
+}
+
+.w-400 {
+  width: 400px;
+}
+
+.vertical-center {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.max-h-200 {
+  max-height: 200px;
+}
+
+.max-h-250 {
+  max-height: 250px;
+}
+
+.max-h-200:hover {
+  overflow-y: scroll;
+}
+
+.cart_number {
+  -webkit-animation: cart_number_bounce 0.5s infinite;
+          animation: cart_number_bounce 0.5s infinite;
+}
+
+.dropdown_button.button_activated {
+  background-color: #f6ad55;
+}
+
+.dropdown {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.dropdown.shown {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.dropdown.hidden-it {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+/* Product item */
+
+.product__item {
+  transform: scale(1);
+}
+
+.product__item .product__item-details {
+  transition: all 0.5s 0s ease-in-out;
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.product__item .product__item-details p {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.5s 0.3s ease-in-out;
+}
+
+.product__item:hover {
+  transform: scale(1.01);
+}
+
+.product__item:hover .product__item-details {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.product__item:hover .product__item-details p {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+/* Contact modal */
+
+.__visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s 0.3s ease-in-out;
+}
+
+#dropdown-list {
+  /* Custom checkbox */
+  /* Create a custom checkbox */
+  /* On mouse-over, add a grey background color */
+  /* When the checkbox is checked, add a blue background */
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Show the checkmark when checked */
+  /* Style the checkmark/indicator */
+}
+
+#dropdown-list .main_checkboxes {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#dropdown-list .checkmark {
+  background-color: transparent;
+  transition: all 0.5s 0s ease-in-out;
+}
+
+#dropdown-list .main_checkboxes:hover input ~ .checkmark {
+  background-color: #eee;
+}
+
+#dropdown-list .main_checkboxes input:checked ~ .checkmark {
+  background-color: #f6ad55;
+}
+
+#dropdown-list .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+#dropdown-list .main_checkboxes input:checked ~ .checkmark:after {
+  display: block;
+}
+
+#dropdown-list .main_checkboxes .checkmark:after {
+  right: 12px;
+  top: 15px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.newsletter {
+  /* Hide the browser's default checkbox */
+  /* Create a custom checkbox */
+  /* On mouse-over, add a grey background color */
+  /* When the checkbox is checked, add a blue background */
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Show the checkmark when checked */
+  /* Style the checkmark/indicator */
+}
+
+.newsletter .container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.newsletter .container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.newsletter .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+.newsletter .container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.newsletter .container input:checked ~ .checkmark {
+  background-color: #f6ad55;
+}
+
+.newsletter .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.newsletter .container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.newsletter .container .checkmark:after {
+  left: 9px;
+  top: 7px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }
 
 @media (min-width: 640px){

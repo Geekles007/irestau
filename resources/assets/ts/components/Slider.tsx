@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Product from "@/core/models/Product";
 
 import Slider from 'react-slick';
-import SliderItem from "./slider-item";
+import SliderItem from "./SliderItem";
 
 interface ProductProps {
     products: Product[]
